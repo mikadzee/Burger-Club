@@ -115,6 +115,7 @@
       & .images-burgers {
         margin-top: 120px;
         display: flex;
+        gap: 20px;
         justify-content: center;
 
         @media(max-width: 600px) {
