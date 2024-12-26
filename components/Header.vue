@@ -1,7 +1,7 @@
 <template>
   <header class="header text-font">
     <div class="logo logo-font">
-      <h2><a href="#home">BURGUR CLUB</a></h2>
+      <h2 @click="postCurrentDNS('home')">BURGUR CLUB</h2>
     </div>
 
     <nav>
@@ -16,19 +16,26 @@
 
 <style lang="less" scoped>
   .header {
-    padding: 30px 100px;
+    padding: 20px 100px;
     display: flex;
     align-items: center;
     position: fixed;
     width: 100vw;
     z-index: 1000;
+
+    @media(max-width: 600px) {
+      padding: 30px 20px;
+
+    }
     
     & .logo {
 
       & > h2 {
-
-        & > a {
-          font-size: 40px;
+        cursor: pointer;
+        font-size: 40px;
+        @media(max-width: 600px) {
+          font-size: 20px;
+          width: 130px;
         }
       }
     }
@@ -38,10 +45,18 @@
       position: absolute;
       right: 100px;
       align-items: center;
+      
+      @media(max-width: 600px) {
+        right: 20px;
 
+      }
       & > ul {
         display: flex;
-        gap: 50px;
+        @media(max-width: 600px) {
+          gap: 10px;
+          
+        }
+        gap: 30px;
 
         & > li {
           cursor: pointer;

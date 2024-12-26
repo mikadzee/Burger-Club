@@ -51,21 +51,15 @@
       </div>
     </div>
 
-    <div style="height: 500vh;"></div>
+    <div style="height: 270vh;"></div>
   </div>
 </template>
 
 <style lang="less">
 @import "./assets/styles/main.less";
 
-html {
-  scroll-behavior: smooth;
-}
 
-* {
-  margin: 0;
-  padding: 0;
-}
+
 
 .container {
   height: 100vh;
@@ -79,6 +73,9 @@ html {
     margin-left: 50px;
     display: flex;
     justify-content: center;
+    @media(max-width: 600px) {
+      margin-left: 0px;
+    }
     & .title {
       margin-top: 200px;
       text-align: center;
@@ -98,29 +95,66 @@ html {
         font-size: 15px;
         color: #ADBC9F;
       }
-  
+      @media(max-width: 600px) {
+        margin-top: 120px;
+        width: 100%;
+        & > h2 {
+          font-size: 30px;
+          color: #ADBC9F;
+        }
+    
+        & > h1 {
+          font-size: 60px;
+        }
+    
+        & > p {
+          font-size: 20px;
+          color: #ADBC9F;
+        }
+      } 
       & .images-burgers {
         margin-top: 120px;
         display: flex;
         justify-content: center;
-        gap: 20px;
+
+        @media(max-width: 600px) {
+          gap: 10px;
+          flex-wrap: wrap;
+          margin-top: 10px;
+
+        }
       }
     }
 
     & .image {
       & > img {
         width: 90%;
+        
+        @media(max-width: 600px) {
+          display: none;
+        }
       }
     }
   }
 
   & .block-2 {
     padding: 0px 190px;
+
+    @media (max-width: 600px) {
+      padding: 0px 0px;
+      
+    }
     & .title-menu {
       margin-top: 60px;
       text-align: center;
       font-size: 40px;
       color: #FBFADA;
+
+      @media (max-width: 600px) {
+        margin-top: 80px;
+        font-size: 30px;
+      
+      }
     }
 
     & .products {
@@ -131,7 +165,9 @@ html {
       align-items: center;
       gap: 15px;
       row-gap: 10px;
-
+      @media (max-width: 600px) {
+        margin-top: 10px;
+      }
       & .product {
         padding: 20px 0px;
         position: relative;
@@ -143,12 +179,27 @@ html {
         & > img {
           height: 190px;
         }
-
+        
         & > h2 {
           margin: 0 auto;
           width: 150px;
           text-align: center;
           font-size: 20px;
+        }
+        @media (max-width: 600px) {
+          margin-top: 10px;
+          width: 150px;
+          height: 220px;
+          & > img {
+            height: 150px;
+          }
+
+          & > h2 {
+            margin: 0 auto;
+            width: 100px;
+            text-align: center;
+            font-size: 15px;
+          }
         }
       }
     }
@@ -161,6 +212,11 @@ html {
       text-align: center;
       font-size: 40px;
       color: #FBFADA;
+      
+      @media (max-width: 600px) {
+        margin-top: 80px;
+        font-size: 30px;
+      }
     }
 
     & .text {
@@ -175,6 +231,21 @@ html {
           margin-left: 10px;
           font-weight: 700;
           color: red;
+        }
+      }
+      @media (max-width: 600px) {
+        margin-top: 20px;
+        padding: 0px 30px;
+        font-size: 18px;
+
+        & > p {
+          line-height: 34px;
+
+          & > span {
+            margin-left: 5px;
+            font-weight: 700;
+            color: red;
+          }
         }
       }
     }
@@ -247,8 +318,6 @@ onMounted(() => {
 
 
 watch(scrollY, (newScrollY) => {
-  console.log(newScrollY);
-  
   blocks.value.forEach(block => {
     if (newScrollY >= block.startScroll) {
 
