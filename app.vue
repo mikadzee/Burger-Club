@@ -2,7 +2,7 @@
   <div>
     <Header />
   </div>
-  <div>
+  <main>
     <div class="container text-font" >
       <div class="block-1" id="home">
         <div class="title logo-font">
@@ -52,7 +52,7 @@
     </div>
 
     <div style="height: 270vh;"></div>
-  </div>
+  </main>
 </template>
 
 <style lang="less">
